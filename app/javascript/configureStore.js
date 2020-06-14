@@ -3,7 +3,6 @@ import { taskReducer } from './reducers/taskReducer'
 
 const configureStore = () => {
   const store = createStore(taskReducer)
-  console.log(store)
   return store
 }
 

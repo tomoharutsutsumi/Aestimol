@@ -1,6 +1,3 @@
-export const addTask = (task) => {
-  return {
-    type: 'ADD_TASK',
-    payload: { task: task } 
-  }
-}
+import { createAction } from 'redux-actions'
+
+export const addTask = createAction('ADD_TASK')
