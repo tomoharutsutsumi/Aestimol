@@ -6,8 +6,7 @@ class Api::V1::TasksController < ApplicationController
 
   def create
     begin
-      # Task.create!(task_params)
-      raise NoMethodError
+      Task.create!(task_params)
     rescue => e
       render json: { error: e.message }, status: 422
     end

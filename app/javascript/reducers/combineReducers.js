@@ -4,7 +4,7 @@ import { taskReducer } from './taskReducer'
 
 const combinedReducers = combineReducers({
   taskState: taskReducer,
-  toastrState: toastrReducer
+  toastr: toastrReducer
 })
 
 export default combinedReducers

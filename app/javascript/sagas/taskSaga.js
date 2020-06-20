@@ -1,5 +1,6 @@
 import { put, takeEvery, all, call } from 'redux-saga/effects'
 import axios from 'axios'
+import { toastr } from 'react-redux-toastr'
 
 function createTask(taskParams) {
   return axios.request({
@@ -14,8 +15,9 @@ function* addTask(action){
     const task = action.payload.task
     yield call(createTask, task)
     yield put({type: 'ADD_TASK', task: task})
+    toastr.success('post success!')
   } catch(e) {
-    console.log(e)
+    toastr.error(`${e}`)
   }
 }
 

@@ -11,7 +11,6 @@ class Task extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const list = this.props.tasks.map((task, i) => <li key={i}>Name: {task.name}, Description: {task. description}</li>)
     return (
       <div>
