@@ -5,6 +5,13 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
+    Task.create!(task_params)
     head :no_content
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:name, :description)
   end
 end
