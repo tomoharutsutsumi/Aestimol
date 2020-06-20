@@ -26,12 +26,12 @@ class App extends React.Component {
                   <Link to="/">Tasks</Link>
                 </li>
                 <li>
-                  <Link to="/new">NewTask</Link>
+                  <Link to="/tasks/new">NewTask</Link>
                 </li>
               </ul>
             </nav>
             <Switch>
-              <Route path="/new">
+              <Route path="/tasks/new">
                 <ConnectedNewTask />
               </Route>
               <Route path="/">

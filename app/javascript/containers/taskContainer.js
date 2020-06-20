@@ -8,11 +8,5 @@ const mapStateToProps = state => (
   }
 )
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addTask: (task) => dispatch(actions.requestAddTask({task: task})) 
-  }
-}
-
-const ConnectedTask = connect(mapStateToProps, mapDispatchToProps)(Task)
+const ConnectedTask = connect(mapStateToProps)(Task)
 export default ConnectedTask

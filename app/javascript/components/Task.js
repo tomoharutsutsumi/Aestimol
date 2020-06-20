@@ -3,11 +3,6 @@ import PropTypes from "prop-types"
 class Task extends React.Component {
   constructor(props){
     super(props)
-    this.state =  {
-      name: '',
-      description: ''
-    }
-
   }
 
   render () {
@@ -15,9 +10,6 @@ class Task extends React.Component {
     return (
       <div>
         <ul>{list}</ul>
-        <input type="text" onChange={e => this.setState({name: e.target.value})}></input>
-        <input type="text" onChange={e => this.setState({description: e.target.value})}></input>
-        <button onClick={() => this.props.addTask(this.state)}>Post</button>
       </div>
     );
   }

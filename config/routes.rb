@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       resources :tasks
     end
   end
+
+  get '/*path' => 'tasks#index'
 end
