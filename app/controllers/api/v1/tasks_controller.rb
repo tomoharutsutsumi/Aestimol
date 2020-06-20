@@ -5,8 +5,12 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
-    Task.create!(task_params)
-    head :no_content
+    begin
+      # Task.create!(task_params)
+      raise NoMethodError
+    rescue => e
+      render json: { error: e.message }, status: 422
+    end
   end
 
   private

@@ -10,9 +10,13 @@ function createTask(taskParams) {
 }
 
 function* addTask(action){
-  const task = action.payload.task
-  yield call(createTask, task)
-  yield put({type: 'ADD_TASK', task: task})
+  try {
+    const task = action.payload.task
+    yield call(createTask, task)
+    yield put({type: 'ADD_TASK', task: task})
+  } catch(e) {
+    console.log(e)
+  }
 }
 
 function* watchIncrementAsync(){
