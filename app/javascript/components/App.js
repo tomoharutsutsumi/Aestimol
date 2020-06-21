@@ -8,8 +8,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap';
 
 const store = configureStore();
 
@@ -20,22 +21,18 @@ class App extends React.Component {
         <ReduxToastr />
         <Router>
           <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Tasks</Link>
-                </li>
-                <li>
-                  <Link to="/tasks/new">NewTask</Link>
-                </li>
-              </ul>
-            </nav>
+            <Navbar bg="dark" variant="dark">
+              <Nav>
+                <LinkContainer to="/all_tasks"><Nav.Link>Tasks</Nav.Link></LinkContainer>
+                <LinkContainer to="/tasks/new"><Nav.Link>NewTask</Nav.Link></LinkContainer>
+              </Nav>
+            </Navbar>
             <Switch>
+              <Route exact path="/all_tasks">
+                <ConnectedTask />
+              </Route>
               <Route path="/tasks/new">
                 <ConnectedNewTask />
-              </Route>
-              <Route path="/">
-                <ConnectedTask />
               </Route>
             </Switch>
           </div>
