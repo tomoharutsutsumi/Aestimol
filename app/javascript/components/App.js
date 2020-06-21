@@ -22,6 +22,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Navbar bg="dark" variant="dark">
+              <Navbar.Brand>Aestimol</Navbar.Brand>
               <Nav>
                 <LinkContainer to="/all_tasks"><Nav.Link>Tasks</Nav.Link></LinkContainer>
                 <LinkContainer to="/tasks/new"><Nav.Link>NewTask</Nav.Link></LinkContainer>
