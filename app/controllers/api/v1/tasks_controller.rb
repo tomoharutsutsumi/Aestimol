@@ -2,6 +2,8 @@ class Api::V1::TasksController < ApplicationController
   skip_before_action :verify_authenticity_token
   #serializer?
   def index
+    @tasks = Task.all
+    render json: @tasks
   end
 
   def create

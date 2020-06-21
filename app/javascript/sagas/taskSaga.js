@@ -10,6 +10,13 @@ function createTask(taskParams) {
   })
 }
 
+function getTasks() {
+  return axios.request({
+    method: 'get',
+    url: '/api/v1/tasks'
+  })
+}
+
 function* addTask(action){
   try {
     const task = action.payload.task
@@ -21,12 +28,26 @@ function* addTask(action){
   }
 }
 
-function* watchIncrementAsync(){
+function* fetchTasks(){
+  try {
+    const tasks = yield call(getTasks)
+    yield put({type: 'FETCH_TASKS', tasks: tasks.data})
+  } catch(e) {
+    toastr.error('fetch failed')
+  }
+}
+
+function* watchAddTask(){
   yield takeEvery('REQUEST_ADD_TASK', addTask)
+}
+
+function* watchFetchTasks(){
+  yield takeEvery('REQUEST_FETCH_TASKS', fetchTasks)
 }
 
 export default function* taskSaga(){
   yield all([
-    watchIncrementAsync()
+    watchAddTask(),
+    watchFetchTasks()
   ])
 }

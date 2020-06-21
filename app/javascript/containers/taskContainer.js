@@ -2,11 +2,17 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/taskAction';
 import Task from '../components/Task';
 
-const mapStateToProps = state => (
-  {
+const mapStateToProps = state => {
+  return {
     tasks: state.taskState.tasks
   }
-)
+}
 
-const ConnectedTask = connect(mapStateToProps)(Task)
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchTasks: () => dispatch(actions.requestFetchTasks())
+  }
+}
+
+const ConnectedTask = connect(mapStateToProps, mapDispatchToProps)(Task)
 export default ConnectedTask

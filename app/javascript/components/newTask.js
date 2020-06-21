@@ -12,13 +12,14 @@ class newTask extends React.Component {
   }
 
   render () {
+    const { addTask } = this.props
     return (
       <div>
         <input type="text" onChange={e => this.setState({name: e.target.value})}></input>
         <input type="text" onChange={e => this.setState({description: e.target.value})}></input>
         <input type="text" onChange={e => this.setState({estimateTime: e.target.value})}></input>
         <input type="text" onChange={e => this.setState({resultTime: e.target.value})}></input>
-        <button onClick={() => this.props.addTask(this.state)}>Post</button>
+        <button onClick={() => addTask(this.state)}>Post</button>
       </div>
     );
   }
