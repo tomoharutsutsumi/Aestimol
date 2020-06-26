@@ -1,28 +1,56 @@
 import React from "react"
 import PropTypes from "prop-types"
-class newTask extends React.Component {
-  constructor(props){
-    super(props)
-    this.state =  {
+import { useFormik } from "formik"
+
+const newTask = ({ addTask }) => {
+  const formik = useFormik({
+    initialValues: {
       name: '',
       description: '',
-      estimateTime: 0,
-      resultTime: 0
-    }
-  }
-
-  render () {
-    const { addTask } = this.props
-    return (
-      <div>
-        <input type="text" onChange={e => this.setState({name: e.target.value})}></input>
-        <input type="text" onChange={e => this.setState({description: e.target.value})}></input>
-        <input type="text" onChange={e => this.setState({estimateTime: e.target.value})}></input>
-        <input type="text" onChange={e => this.setState({resultTime: e.target.value})}></input>
-        <button onClick={() => addTask(this.state)}>Post</button>
-      </div>
-    );
-  }
-}
+      estimateTime: '',
+      resultTime: ''
+    },
+    onSubmit: values => {
+      addTask(values)
+    },
+  });
+  return (
+    <form onSubmit={formik.handleSubmit}>
+      <label>Name</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.name}
+      />
+      <label>Description</label>
+      <input
+        id="description"
+        name="description"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.description}
+      />
+      <label>estimateTime</label>
+      <input
+        id="estimateTime"
+        name="estimateTime"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.estimateTime}
+      />
+      <label>resultTime</label>
+      <input
+        id="resultTime"
+        name="resultTime"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.resultTime}
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
 export default newTask
