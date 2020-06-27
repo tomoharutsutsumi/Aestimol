@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useFormik } from "formik"
+import { taskValidation } from '../validations/taskValidation'
 
 const newTask = ({ addTask }) => {
   const formik = useFormik({
@@ -10,6 +11,7 @@ const newTask = ({ addTask }) => {
       estimateTime: '',
       resultTime: ''
     },
+    validationSchema: taskValidation,
     onSubmit: values => {
       addTask(values)
     },
@@ -24,6 +26,9 @@ const newTask = ({ addTask }) => {
         onChange={formik.handleChange}
         value={formik.values.name}
       />
+      {formik.touched.name && formik.errors.name ? (
+        <div>{formik.errors.name}</div>
+      ) : null}
       <label>Description</label>
       <input
         id="description"
@@ -32,6 +37,9 @@ const newTask = ({ addTask }) => {
         onChange={formik.handleChange}
         value={formik.values.description}
       />
+      {formik.touched.description && formik.errors.description ? (
+        <div>{formik.errors.description}</div>
+      ) : null}
       <label>estimateTime</label>
       <input
         id="estimateTime"
@@ -40,6 +48,9 @@ const newTask = ({ addTask }) => {
         onChange={formik.handleChange}
         value={formik.values.estimateTime}
       />
+      {formik.touched.estimateTime && formik.errors.estimateTime ? (
+        <div>{formik.errors.estimateTime}</div>
+      ) : null}
       <label>resultTime</label>
       <input
         id="resultTime"
@@ -48,6 +59,9 @@ const newTask = ({ addTask }) => {
         onChange={formik.handleChange}
         value={formik.values.resultTime}
       />
+      {formik.touched.resultTime && formik.errors.resultTime ? (
+        <div>{formik.errors.resultTime}</div>
+      ) : null}
       <button type="submit">Submit</button>
     </form>
   );
