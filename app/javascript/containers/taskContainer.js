@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchTasks: () => dispatch(actions.requestFetchTasks())
+    fetchTasks: () => dispatch(actions.requestFetchTasks()),
+    changeTask: (task) => dispatch(actions.requestChangeTask(task)) 
   }
 }
 

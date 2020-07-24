@@ -1,5 +1,7 @@
 import React from "react";
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { WORKING } from '../taskStatus'
+
 class Task extends React.Component {
   constructor(props) {
     super(props)
@@ -11,7 +13,7 @@ class Task extends React.Component {
   }
 
   render () {
-    const { tasks } = this.props
+    const { tasks, changeTask } = this.props
     return (
       <div>
         {tasks.map((task, i) => 
@@ -21,6 +23,8 @@ class Task extends React.Component {
               <Card.Text>Description: {task.description}</Card.Text>
               <Card.Text>EstimateTime: {task.estimateTime}h</Card.Text>
               <Card.Text>ResultTime: {task.resultTime}h</Card.Text>
+              <Button style={{margin: '0.5rem'}} onClick={() => changeTask({ ...task, status: WORKING })}>start this task</Button>
+              <Button variant="danger" style={{margin: '0.5rem'}}>finish this task</Button>
             </Card.Body>  
           </Card>
         )}

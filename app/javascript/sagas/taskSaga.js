@@ -17,6 +17,10 @@ function getTasks() {
   })
 }
 
+function updateTask() {
+  
+}
+
 function* addTask(action){
   try {
     const task = action.payload.task
@@ -37,6 +41,17 @@ function* fetchTasks(){
   }
 }
 
+function* changeTask(action) {
+  try {
+    const task = action.payload
+    yield call(updateTask, task)
+    yield put({type: 'UPDATE_TASK', task})
+    toastr.success('update success!')
+  } catch(e) {
+    toastr.error(`${e}`)
+  }
+}
+
 function* watchAddTask(){
   yield takeEvery('REQUEST_ADD_TASK', addTask)
 }
@@ -45,9 +60,14 @@ function* watchFetchTasks(){
   yield takeEvery('REQUEST_FETCH_TASKS', fetchTasks)
 }
 
+function* watchChangeTask() {
+  yield takeEvery('REQUEST_CHANGE_TASK', changeTask)
+}
+
 export default function* taskSaga(){
   yield all([
     watchAddTask(),
-    watchFetchTasks()
+    watchFetchTasks(),
+    watchChangeTask()
   ])
 }

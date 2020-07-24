@@ -17,7 +17,10 @@ export const taskReducer = handleActions(
       } else {
         return { ...state, tasks: [...state.tasks, ...tasks] }
       }
-      
+    },
+    UPDATE_TASK: (state = initialState, action) => {
+      const newTask = action.task
+      return { ...state, tasks: [...state.tasks.map((task) => task.id === newTask.id ? { ...task, status: newTask.status } : task)] };
     }
   },
   initialState

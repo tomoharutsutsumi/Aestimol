@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { taskValidation } from '../validations/taskValidation';
+import { WAITING } from '../taskStatus';
 
 const newTask = ({ addTask }) => {
   const formik = useFormik({
@@ -9,7 +10,7 @@ const newTask = ({ addTask }) => {
       name: '',
       description: '',
       estimateTime: '',
-      resultTime: ''
+      status: WAITING,
     },
     validationSchema: taskValidation,
     onSubmit: values => {
