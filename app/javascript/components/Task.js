@@ -19,8 +19,8 @@ class Task extends React.Component {
             <Card.Body>
               <Card.Text>TaskName: {task.name}</Card.Text>
               <Card.Text>Description: {task.description}</Card.Text>
-              <Card.Text>EstimateTime: {task.estimate_time}h</Card.Text>
-              <Card.Text>ResultTime: {task.result_time}h</Card.Text>
+              <Card.Text>EstimateTime: {task.estimateTime}h</Card.Text>
+              <Card.Text>ResultTime: {task.resultTime}h</Card.Text>
             </Card.Body>  
           </Card>
         )}

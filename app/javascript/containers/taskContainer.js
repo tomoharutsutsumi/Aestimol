@@ -3,6 +3,7 @@ import * as actions from '../actions/taskAction';
 import Task from '../components/Task';
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     tasks: state.taskState.tasks
   }
