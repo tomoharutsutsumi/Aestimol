@@ -1,15 +1,15 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import ConnectedTask from '../containers/taskContainer'
-import ConnectedNewTask from '../containers/newTaskContainer'
-import configureStore from '../configureStore'
-import ReduxToastr from 'react-redux-toastr'
+import React from 'react';
+import { Provider } from 'react-redux';
+import ConnectedTask from '../containers/taskContainer';
+import ConnectedNewTask from '../containers/newTaskContainer';
+import configureStore from '../configureStore';
+import ReduxToastr from 'react-redux-toastr';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar } from 'react-bootstrap';
 
 const store = configureStore();

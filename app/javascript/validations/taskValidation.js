@@ -1,4 +1,4 @@
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 
 export const taskValidation = Yup.object({
   name: Yup.string().required('name is Required'),

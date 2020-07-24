@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useFormik } from "formik"
-import { taskValidation } from '../validations/taskValidation'
+import React from "react";
+import PropTypes from "prop-types";
+import { useFormik } from "formik";
+import { taskValidation } from '../validations/taskValidation';
 
 const newTask = ({ addTask }) => {
   const formik = useFormik({

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Card } from 'react-bootstrap';
 class Task extends React.Component {
   constructor(props) {

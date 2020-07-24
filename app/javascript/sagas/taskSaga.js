@@ -1,5 +1,4 @@
 import { put, takeEvery, all, call } from 'redux-saga/effects';
-import axios from 'axios';
 import { toastr } from 'react-redux-toastr';
 import axiosClient from '../client/axiosClient';
 
