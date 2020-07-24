@@ -51,17 +51,6 @@ const newTask = ({ addTask }) => {
       {formik.touched.estimateTime && formik.errors.estimateTime ? (
         <div>{formik.errors.estimateTime}</div>
       ) : null}
-      <label>resultTime</label>
-      <input
-        id="resultTime"
-        name="resultTime"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.resultTime}
-      />
-      {formik.touched.resultTime && formik.errors.resultTime ? (
-        <div>{formik.errors.resultTime}</div>
-      ) : null}
       <button type="submit">Submit</button>
     </form>
   );
