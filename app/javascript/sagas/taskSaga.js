@@ -1,9 +1,10 @@
-import { put, takeEvery, all, call } from 'redux-saga/effects'
-import axios from 'axios'
-import { toastr } from 'react-redux-toastr'
+import { put, takeEvery, all, call } from 'redux-saga/effects';
+import axios from 'axios';
+import { toastr } from 'react-redux-toastr';
+import axiosClient from '../client/axiosClient';
 
 function createTask(taskParams) {
-  return axios.request({
+  return axiosClient.request({
     method: 'post',
     url: '/api/v1/tasks',
     data: taskParams
@@ -11,7 +12,7 @@ function createTask(taskParams) {
 }
 
 function getTasks() {
-  return axios.request({
+  return axiosClient.request({
     method: 'get',
     url: '/api/v1/tasks'
   })
